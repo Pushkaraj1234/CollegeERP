@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  build-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +24,6 @@ jobs:
 
       - name: Run unit tests
         run: python -m unittest -v
+
+      - name: Build Docker image
+        run: docker build -t college-erp:ci .

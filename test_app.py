@@ -25,3 +25,10 @@ class TestCollegeERP(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+    def test_search_students(self):
+        from app import search_students
+        add_student("104", "Neha", "Computer Engineering")
+        results = search_students("computer")
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0][0], "104")
